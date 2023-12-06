@@ -1,21 +1,27 @@
 <script >
 import axios from "axios";
 import { store } from "./data/store";
+import ProjectCard from "./components/ProjectCard.vue";
+
 export default {
   name: "App",
+  components: {
+    ProjectCard,
+},
   data() {
     return {
-      titolo: "Hello World",
+    
     };
   },
 
   methods: {
     getApi() {
-      axios
-        .get(store.apiUrl + "projects")
+      
+      axios.get(store.apiUrl + "projects")
 
-        .then((response) => {
-          console.log(response.data);
+        .then((result) => {
+          console.log(result.data);
+          store.project = result.data;
         });
     },
   },
@@ -26,7 +32,7 @@ export default {
 </script>
 
 <template>
-  <h1>{{ titolo }}</h1>
+  <ProjectCard/>
 </template>
 
 <style lang="scss">
