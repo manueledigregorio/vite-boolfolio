@@ -21,6 +21,7 @@ data() {
         <div class="card-body">
           <h5 class="card-title"> Name: {{ project.name }}</h5>
           <h6 class="card-subtitle mb-2 text-body-secondary">Description: {{ project.description }}</h6>
+          <router-link class="btn btn-danger " :to="{name:'ShowProject', params:{slug: project.slug}  }" >Info</router-link>
         </div>
       </div>
      </div>

@@ -1,39 +1,30 @@
-<script >
-import axios from "axios";
-import { store } from "./data/store";
-import ProjectCard from "./components/ProjectCard.vue";
 
+
+<script>
+import Header from "./components/partials/Header.vue"
 export default {
-  name: "App",
-  components: {
-    ProjectCard,
+name:'App',
+components:{
+    Header
 },
-  data() {
-    return {
+data() {
+  return {
     
-    };
-  },
-
-  methods: {
-    getApi() {
-      
-      axios.get(store.apiUrl + "projects")
-
-        .then((result) => {
-          console.log(result.data);
-          store.project = result.data;
-        });
-    },
-  },
-  mounted() {
-    this.getApi();
-  },
-};
+  }
+},
+}
 </script>
 
 <template>
-  <ProjectCard/>
+  <div class="container">
+    <Header/>
+  <RouterView  />
+  </div>
+  
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+
+
+
 </style>
